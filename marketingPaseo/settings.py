@@ -105,7 +105,16 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+if not DEBUG == False:
+    STATIC_ROOT = '/usr/shared/kiosko/static/'
+    STATIC_URL = 'http://10.10.0.201/statik/'
+else:
+    STATIC_URL = '/static/'
 
-STATIC_URL = '/static/'
-MEDIA_URL = 'http://10.10.2.20/kioskos/'
-MEDIA_ROOT= "C:/xampp/htdocs/kioskos"
+# Media files
+if not DEBUG == False:
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'public/media')
+    MEDIA_URL = 'http://10.10.0.201/mediak/'
+else:
+    MEDIA_URL = 'http://10.10.2.20/kioskos/'
+    MEDIA_ROOT= "C:/xampp/htdocs/kioskos"
