@@ -14,7 +14,7 @@ class Propaganda(models.Model):
 	)
 	choice   = models.CharField(max_length=10, choices=types, default="video")
 	video    = models.FileField(upload_to="videos/", blank=True, default="")
-	images   = models.ManyToManyField(Image)
+	images   = models.ManyToManyField(Image)	
 
 	def __unicode__(self):
 		return "%d:  %s" % (self.pk, self.choice)	
